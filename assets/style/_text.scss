@@ -1,0 +1,146 @@
+body,
+input,
+select,
+button,
+textarea {
+  color: $gray-10;
+  font-size: $base-size;
+  font-family: $base-font;
+  line-height: $base-line-height;
+  font-weight: 400;
+  @include font-smoothing;
+}
+
+@mixin block-margin ($margin: $vertical-margin) {
+  margin-top: $margin;
+  margin-bottom: $margin;
+  //&:first-child {
+    //margin-top: 0;
+  //}
+}
+
+#{$block-elements} {
+  @include block-margin;
+}
+
+
+/* ===================================== *
+ * Heading
+ * ------------------------------------- */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 200;
+  margin-top: 25px;
+  margin-bottom: 25px;
+  line-height: 1em;
+}
+
+// 1.125 modular scale - http://www.modularscale.com/?16&px&1.125&web&text
+h1 {
+  font-size: 48px;
+}
+
+h2 {
+  font-size: 42px;
+}
+
+h3 {
+  font-size: 32px;
+}
+
+h4 {
+  font-size: 28px;
+}
+
+h5 {
+  font-size: 22px;
+}
+
+h6 {
+  font-size: 16px;
+}
+
+b,
+strong {
+  font-weight: 500;
+}
+
+// Subscripts & superscripts
+sub,
+sup {
+  // Specified in % so that the sup/sup is the right size relative to the surrounding text
+  font-size: 75%;
+
+  // Zero out the line-height so that it doesn't interfere with the positioning that follows
+  line-height: 0;
+
+  // Where the magic happens: makes all browsers position the sup/sup properly, relative to the surrounding text
+  position: relative;
+
+  // Note that if you're using Eric Meyer's reset.css, this is already set and you can remove this rule
+  vertical-align: baseline;
+}
+
+// Move the superscripted text up
+sup {
+  top: -0.5em;
+}
+
+// Move the subscripted text down, but only half as far down as the superscript moved up
+sub {
+  bottom: -0.25em;
+}
+
+// Links & buttons
+a,
+button {
+  cursor: pointer;
+}
+
+/* ===================================== *
+ * Horizontal rule
+ * ------------------------------------- */
+
+hr {
+  border: solid $gray-04;
+  border-width: 1px 0 0 0;
+}
+
+
+// Style
+%list-style {
+  padding-top: 9px;
+  margin-left: 0;
+  padding-left: 1.2em;
+}
+
+/* ===================================== *
+ * ii. Unordered
+ * ------------------------------------- */
+
+ul {
+  @extend %list-style;
+  list-style-type: disc;
+
+  // Bare unordered list vertical rhythm
+  li > &,
+  dd > & {
+    padding-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+// Nested unordered lists
+ul ul {
+  list-style-type: circle;
+}
+
+ul ul ul {
+  list-style-type: square;
+}
+
