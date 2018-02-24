@@ -58,8 +58,10 @@ document.addEventListener("click", function(event) {
   }
 
   if (event.target.hash == '#contact') {
-    event.preventDefault()
     var input = document.querySelector('form input[type="text"]')
-    input.focus()
+    if (input) {
+      event.preventDefault()
+      input.focus()
+    }
   }
 })

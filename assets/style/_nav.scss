@@ -1,13 +1,28 @@
+header {
+  background: #222;
+  color: #ccc;
+  text-align: center;
+
+  @include until($breakpoint) {
+    h1 { font-size: 2em; }
+  }
+
+  h4 + h1 {
+    margin-top: -.3em;
+  }
+}
+
+
 nav {
   display: flex;
   justify-content: center;
-  background: #222;
   border-bottom: 1px solid #333;
   a {
     padding: 0 15px;
     text-decoration: none;
     color: #888;
     line-height: 2;
+    transition: $duration $timing color;
 
     &:hover, &:focus, &.active {
       color: #fff;

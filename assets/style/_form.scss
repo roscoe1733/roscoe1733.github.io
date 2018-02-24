@@ -50,6 +50,9 @@ button, .button {
   display: flex;
   align-items: baseline;
   margin-left: auto;
+  &.normal {
+    flex-direction: row;
+  }
   @include until($breakpoint) {
     button, .button {
       width: 100%;
@@ -79,25 +82,9 @@ header a.button {
   }
 }
 
-footer {
-  line-height: 1.8em;
-}
-
-.logo {
-  display: inline-block;
-  background: url("/images/logo.png") no-repeat;
-  background-size: contain;
-  height: 2em;
-  width: 2.5em;
-  margin: 0 .2em;
-  vertical-align: top;
-}
-
-.theater {
-  background-image: linear-gradient(180deg, #111, #333);
-}
-
-header {
-  background: #222 !important;
-  color: #ccc;
+.button.blue {
+  background-color: $blue-03;
+  &:hover {
+    background-color: $blue-02;
+  }
 }
