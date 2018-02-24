@@ -1,22 +1,32 @@
-//var request = new XMLHttpRequest();
-//request.open('POST', '/my/url', true);
-//request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
-//request.send(data);
+document.addEventListener("DOMContentLoaded", function() {
+  setupPlayer();
+  var path = window.location.pathname
+  var hereLinks = document.querySelectorAll('a[href$="'+path+'"]')
 
-//var xhr = new XMLHttpRequest();
-//xhr.open("GET", "/bar/foo.txt", true);
-//xhr.onload = function (e) {
-  //if (xhr.readyState === 4) {
-    //if (xhr.status === 200) {
-      //console.log(xhr.responseText);
-    //} else {
-      //console.error(xhr.statusText); //}
-  //}
-//};
-//xhr.onerror = function (e) {
-  //console.error(xhr.statusText);
-//};
-//xhr.send(null);
+  Array.prototype.forEach.call(hereLinks, function(link) {
+    link.classList.add('active')
+  })
+
+  document.querySelector('#contact').addEventListener("submit", submitContact)
+});
+
+document.addEventListener("click", function(event) {
+
+  if (event.target.dataset.video) {
+    event.preventDefault()
+    setVideo(event.target)
+  }
+
+  if (event.target.hash == '#contact') {
+    var input = document.querySelector('form input[type="text"]')
+    if (input) {
+      event.preventDefault()
+      input.focus()
+    }
+  }
+
+})
+
 function setupPlayer() {
   Array.prototype.forEach.call(document.querySelectorAll('.video-thumbs a:first-child'), function(el) {
 
@@ -39,29 +49,43 @@ function setVideo(el) {
   el.classList.add('active')
 }
 
-document.addEventListener("DOMContentLoaded", function() {
-  setupPlayer();
-  var path = window.location.pathname
-  var hereLinks = document.querySelectorAll('a[href$="'+path+'"]')
 
-  Array.prototype.forEach.call(hereLinks, function(link) {
-    link.classList.add('active')
-  })
-});
+//function submitContact(event) {
+  //event.preventDefault();
 
-document.addEventListener("click", function(event) {
-  console.log(event.target.hash)
+  //var name = document.querySelector('#name').value
+  //var email = document.querySelector('#email').value
+  //var message = document.querySelector('#message').value
+  //var gotcha = document.querySelector('#gotcha').value
 
-  if (event.target.dataset.video) {
-    event.preventDefault()
-    setVideo(event.target)
-  }
+  //var request = new XMLHttpRequest()
+  //request.open('POST', 'https://formspree.io/marcusross@cloverbloomproductions.com', true)
+  //request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8')
 
-  if (event.target.hash == '#contact') {
-    var input = document.querySelector('form input[type="text"]')
-    if (input) {
-      event.preventDefault()
-      input.focus()
-    }
-  }
-})
+  //request.onload = function (e) {
+    //if (request.readyState === 4) {
+      //if (request.status === 200) {
+        //console.log(request.responseText)
+      //} else {
+        //console.error(request.statusText)
+      //}
+    //}
+  //}
+
+  //request.onerror = function (e) {
+    //console.error(request.statusText)
+  //}
+
+  //var data = {
+    //name: name,
+    //_replyto: email,
+    //_format: 'plain',
+    //_gotcha: gotcha,
+    //email: email,
+    //comments: message,
+    //_subject:'My Form Submission',
+  //}
+
+  //request.send(data);
+//}
+

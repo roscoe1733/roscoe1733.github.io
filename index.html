@@ -36,11 +36,12 @@
               <p>Marcus graduated with a bachelors degree in Corporate Media from Oklahoma Christian University and studied film at the Los Angeles Films Study Center.</p>
               <p class='button-row'><a class="button" href="/work.html">See Client Work</a></p>
               <hr>
-              <form id="contact">
+              <form id="contact" action="https://formspree.io/marcusross@cloverbloomproductions.com" method="POST">
                 <h3>Contact Marcus</h3>
-                <p><input type="text" placeholder="Name"></p>
-                <p><input type="text" placeholder="Email Address"></p>
-                <p><textarea placeholder="Message"></textarea></p>
+                <p><input required id="name" name="name" type="text" placeholder="Name"></p>
+                <p><input required id="email" name="email" type="text" placeholder="Email Address"></p>
+                <p><textarea required id="message" name="message" placeholder="Message"></textarea></p>
+                <input type="text" id="gotcha" name="_gotcha" style="display:none" />
                 <p class='button-row'><button type="submit">Send Message</button></p>
               </form>
             </article>

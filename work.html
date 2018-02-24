@@ -40,11 +40,12 @@
       </section>
       <section id="contact" class="contact">
         <div class="two-of-five">
-          <form>
+          <form id="contact" action="https://formspree.io/marcusross@cloverbloomproductions.com" method="POST">
             <h3>Contact Marcus</h3>
-            <p><input type="text" placeholder="Name"></p>
-            <p><input type="text" placeholder="Email Address"></p>
-            <p><textarea placeholder="Message"></textarea></p>
+            <p><input required id="name" name="name" type="text" placeholder="Name"></p>
+            <p><input required id="email" name="email" type="text" placeholder="Email Address"></p>
+            <p><textarea required id="message" name="message" placeholder="Message"></textarea></p>
+            <input type="text" id="gotcha" name="_gotcha" style="display:none" />
             <p class='button-row'><button type="submit">Send Message</button></p>
           </form>
         </div>
