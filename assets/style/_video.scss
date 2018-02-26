@@ -52,8 +52,8 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%) scale(0.6);
-      @include triangle(right, #fff, 20px);
-      border-left-width: 40px;
+      @include triangle(right, #fff, 2vw);
+      border-left-width: 4vw;
       opacity: 0;
       transition-property: opacity, transform;
     }
