@@ -76,6 +76,11 @@ footer {
   background: $gray-03;
   border-top: 1px solid $gray-04;
   text-align: center;
+  font-size: .75em;
+
+  @include at-least($breakpoint) {
+    font-size: 1em;
+  }
 }
 
 .card {

@@ -1,3 +1,6 @@
+$input-weight-shadow: 0 1px 3px rgba(#000, .3);
+$empty-shadow: 0 0 0 transparent;
+
 input, textarea {
   width: 100%;
   appearance: none;
@@ -6,10 +9,10 @@ input, textarea {
   padding: 9px 12px;
   border-radius: $radius;
   line-height: 1.8em;
-  box-shadow: 0 0 0 1px rgba(#000, .1);
+  box-shadow: 0 0 0 1px rgba(#000, .1), $empty-shadow;
   transition: $duration $timing box-shadow;
-  &:focus {
-    box-shadow: 0 0 0 1px rgba($blue-01, .4);
+  &:hover, &:focus {
+    box-shadow: 0 0 0 1px rgba(#000, .3), $input-weight-shadow;
   }
 }
 
@@ -34,15 +37,24 @@ button, .button {
   background: #fff;
   border-radius: $radius;
   transition:
-  color $duration,
-  background $duration,
-  box-shadow $duration;
+    color $duration,
+    background $duration,
+    box-shadow $duration;
 
   // Normal state
   color: inherit;
+
+}
+button {
   box-shadow:
-  0 0 0 1px rgba($gray-11, .1),
-  0 1px 3px rgba($gray-11, .15);
+    0 0 0 1px rgba(#000, .1),
+    0 1px 3px rgba(#000, .15);
+  &:hover, &:focus {
+    background-image: linear-gradient(180deg, #fff, mix($blue-01, #fff, 3));
+    box-shadow: 
+      0 0 0 1px rgba(#000, .3),
+      0 1px 3px rgba(#000, .25);
+  }
 }
 
 .button-row {
@@ -61,30 +73,30 @@ button, .button {
 }
 
 a.button {
-  transition: $timing $duration background-color;
+  transition: $timing $duration background-color, color;
   color: #fff;
-  background-color: #444;
   font-weight: 200;
-  &:hover {
-    background-color: #222;
+  background-color: #333;
+
+  &:hover, &:focus {
     color: #fff;
+    background-color: #555;
   }
 }
 
 header a.button {
   padding: .7em 1.6em;
-  box-shadow: 0 0 0 1px #444;
   background-color: transparent;
-  color: inherit;
-  &:hover {
-    background-color: #333;
-    box-shadow: 0 0 0 1px #444;
+  box-shadow: 0 0 0 1px #555;
+  &:hover, &:focus {
+    color: #fff;
+    background-color: #444;
   }
 }
 
 .button.blue {
   background-color: $blue-03;
-  &:hover {
+  &:hover, &:focus {
     background-color: $blue-02;
   }
 }

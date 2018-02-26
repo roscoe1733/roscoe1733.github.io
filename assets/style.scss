@@ -102,6 +102,8 @@ footer {
 
 .logo {
   @include place-bg('logo.png', 2.5em, 2em);
+  position: relative;
+  top: -.1em;
 }
 
 .lazy-circles-logo {

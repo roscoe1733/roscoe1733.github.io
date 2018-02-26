@@ -1,3 +1,4 @@
+// Load Content
 document.addEventListener("DOMContentLoaded", function() {
   setupPlayer();
   var path = window.location.pathname
@@ -7,7 +8,12 @@ document.addEventListener("DOMContentLoaded", function() {
     link.classList.add('active')
   })
 
-  document.querySelector('#contact').addEventListener("submit", submitContact)
+  //document.querySelector('#contact').addEventListener("submit", submitContact)
+  if ( window.location.hash == "#contact" ) {
+    window.setTimeout(function(){
+      document.querySelector('#contact input').focus()
+    }, 300);
+  }
 });
 
 document.addEventListener("click", function(event) {
@@ -18,10 +24,9 @@ document.addEventListener("click", function(event) {
   }
 
   if (event.target.hash == '#contact') {
-    var input = document.querySelector('form input[type="text"]')
+    var input = document.querySelector('#contact input[type="text"]')
     if (input) {
-      event.preventDefault()
-      input.focus()
+      window.setTimeout(function(){ input.focus() }, 300);
     }
   }
 
