@@ -3,6 +3,7 @@ $empty-shadow: 0 0 0 transparent;
 
 input, textarea {
   width: 100%;
+  -webkit-appearance: none;
   appearance: none;
   border: none;
   width: 100%;
