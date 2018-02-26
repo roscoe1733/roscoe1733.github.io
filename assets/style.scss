@@ -107,16 +107,22 @@ footer {
 }
 
 .lazy-circles-logo {
-  @include place-bg('lazy-circles-logo.png', 8em, 4.5em);
+  @include place-bg('lazy-circles-logo.png', 100%, 45vw);
+  max-width: 900px;
+
+  @include at-least($breakpoint-sm) {
+    width: 90vw;
+    height: 22vw;
+  }
 }
 
-.laurels {
-  @include place-bg('laurels.png', 100%, 4em);
+.awards {
+  @include place-bg('awards.png', 100%, 25vw);
+  max-width: 800px;
 
-  @include at-least($breakpoint-med) {
-    height: 5em;
-    margin-top: 2em;
-    margin-bottom: 2em;
+  @include at-least($breakpoint-sm) {
+    width: 90vw;
+    height: 15vw;
   }
 }
 
@@ -132,6 +138,13 @@ footer {
 
 .lazy-circles-header {
   background-image: linear-gradient(180deg, #283F7D 10%, #4B77AB);
+
+  @include at-least($breakpoint) {
+    h1 {
+      margin-top: 1em;
+      margin-bottom: 1.5em;
+    }
+  }
 
   nav {
     border-bottom-color: rgba(#EADEDE, .1);
